@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".loginok">
+
+    <Button
+        android:onClick="contactmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אנשי קשר"/>
+    <Button
+        android:onClick="housemenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="בתים/דירות"/>
+    <Button
+        android:onClick="ordermenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הזמנות"/>
+
+
+</LinearLayout>

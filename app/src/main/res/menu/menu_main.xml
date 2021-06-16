@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/editmode"
+        android:icon="@drawable/baseline_mode_edit_24"
+        android:title="edit"
+        app:showAsAction="always"
+        android:orderInCategory="0"/>
+    <item
+        android:id="@+id/saveedit"
+        android:icon="@drawable/baseline_save_24"
+        android:title="save"
+        app:showAsAction="always"
+        android:visible="true"
+        android:orderInCategory="0"
+        app:actionViewClass="android.widget.ImageButton" />
+
+</menu>

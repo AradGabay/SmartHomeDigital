@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".newContact">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="48">
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactCityEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="עיר"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactStreetEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="רחוב"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactStreetNumEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="מספר בית"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactApartmentNumberEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="מספר דירה"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactFloorEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="קומה(אופציונלי)"/>
+
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactCellularNumEdt"
+                android:layout_width="match_parent"
+                android:inputType="phone"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="טלפון ביתי"/>
+
+
+        </LinearLayout>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="48">
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactNameEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="שם פרטי"/>
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactFamilyEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="שם משפחה"/>
+
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactEmailEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="כתובת מייל"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/contactPhoneNumEdt"
+                android:layout_width="match_parent"
+                android:inputType="phone"
+                android:layout_height="wrap_content"
+                android:hint="טלפון אישי"
+                android:gravity="end" />
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/recordCountTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addContact"
+        android:text="שמור"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addContactAndHouse"
+        android:text="שמור והוסף בית"/>
+
+</LinearLayout>

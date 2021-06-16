@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/newcontact"
+        android:title="איש קשר חדש"
+        android:orderInCategory="400">
+    </item>
+    <item
+        android:id="@+id/newHouse"
+        android:title="בית חדש"
+        android:orderInCategory="400">
+    </item>
+
+
+</menu>

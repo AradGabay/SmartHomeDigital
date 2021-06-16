@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:context=".newHouse">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/recordCountTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:id="@+id/houseCityEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="עיר"/>
+            <EditText
+                android:id="@+id/houseStreetEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="רחוב"/>
+            <EditText
+                android:id="@+id/houseStreetNumEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="מספר בית"/>
+            <EditText
+                android:id="@+id/houseApartmentNumberEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="מספר דירה"/>
+            <EditText
+                android:id="@+id/houseFloorEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="קומה(אופציונלי)"/>
+
+            <EditText
+                android:id="@+id/housePhoneNumEdt"
+                android:layout_width="match_parent"
+                android:inputType="phone"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="מס' טלפון"/>
+            <EditText
+                android:id="@+id/houseDnsEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="DNS"/>
+            <EditText
+                android:id="@+id/housePasswordEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="Password"
+                android:inputType="textPassword"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addHouse"
+                android:text="שמור"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"/>
+
+    </LinearLayout>

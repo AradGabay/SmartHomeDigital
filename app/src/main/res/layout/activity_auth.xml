@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".auth">
+
+    <TextView
+        android:id="@+id/regorlogtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="התחברות"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black" />
+    <EditText
+        android:id="@+id/fullnameedt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="שם מלא"/>
+
+    <EditText
+        android:id="@+id/emailedt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="אימייל" />
+
+    <EditText
+        android:id="@+id/passwordedt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="סיסמא"/>
+    <EditText
+        android:id="@+id/phonenumedt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:visibility="gone"
+        android:hint="מס טלפון"/>
+
+    <Button
+        android:id="@+id/regorlogbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logorreg"
+        android:text="כניסה"
+        app:backgroundTint="#00BCD4" />
+    <TextView
+        android:id="@+id/reglogoption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אינך רשום עוד במערכת? הירשם כאן!"/>
+
+    <CheckBox
+        android:id="@+id/cbStayConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הישאר מחובר"/>
+</LinearLayout>
