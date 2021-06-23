@@ -11,7 +11,7 @@ public class Constants {
     public static final Integer CONTACT_FIRST_REC_ID = 10000;
     public static final Integer PRIVATE_HOUSE_REC_ID = 100;
     public static final String PRIVATE_PROJECT_NAME = "prv";
-    public static final String[] installStatus = new String[]{"התקנה מושלמת","התקנה ללא ראוטר","התקנה ללא ראוטר וללא משתמש","התקנת מפסקים בלבד","התקנה חלקית","אחר"};
+    public static final String[] orderStatus = new String[]{"התקנה מושלמת","התקנה ללא ראוטר","התקנה ללא ראוטר וללא משתמש","התקנת מפסקים בלבד","התקנה חלקית","אחר"};
 
     //firebase references
     public static FirebaseAuth M_Auth = FirebaseAuth.getInstance();

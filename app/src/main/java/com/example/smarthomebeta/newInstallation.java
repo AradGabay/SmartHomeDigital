@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -68,22 +69,26 @@ public class newInstallation extends AppCompatActivity {
         UidHouse = t1.getStringExtra("UidHouse");
         houseidTv.setText(houseidTv.getText()+UidHouse);
         UidContact = t1.getStringExtra("UidContact");
+        clientName = t1.getStringExtra("contactName");
+        clientnameTv.setText(clientnameTv.getText()+clientName);
 
-        if(UidContact==null)clientnameTv.setText(clientnameTv.getText()+"אין לקוח מקושר");
+       /* if(UidContact==null)clientnameTv.setText(clientnameTv.getText()+" לא מקושר לקוח");
         else{
             REF_CONTACTS.child(UidContact).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String contactName = snapshot.child("contactName").getValue().toString()+" "+snapshot.child("contactFamily").getValue().toString();
-                    clientnameTv.setText(clientnameTv.getText()+UidContact+"-"+contactName);
-                }
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String contactName = snapshot.child("contactName").getValue().toString()+" "+snapshot.child("contactFamily").getValue().toString();
+                clientnameTv.setText(clientnameTv.getText()+UidContact+"-"+contactName);
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+            }
+        });
         }
+*/
+
 
 
 
@@ -201,6 +206,10 @@ public class newInstallation extends AppCompatActivity {
         REF_ORDERS.child(UidOrder).child("installs").child(curDate).setValue(installData);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
 
 }

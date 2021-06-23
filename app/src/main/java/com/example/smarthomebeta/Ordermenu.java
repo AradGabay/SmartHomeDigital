@@ -32,7 +32,7 @@ public class Ordermenu extends AppCompatActivity implements AdapterView.OnItemCl
     ArrayList<String> ordersTitle;
     HashMap<Integer,String> orders;
     ArrayAdapter<String> adp;
-    String UidContact;
+    String UidContact, UidHouse, contactName;
     Intent t1;
 
 
@@ -47,17 +47,48 @@ public class Ordermenu extends AppCompatActivity implements AdapterView.OnItemCl
         orders = new HashMap<Integer, String>();
         ordersLv.setOnItemClickListener(this);
 
-        REF_ORDERS.addListenerForSingleValueEvent(new ValueEventListener() {
+        REF_ORDERS.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds: snapshot.getChildren()){
                     orders.put(orders.size(),ds.getKey());
+                    UidHouse = ds.child("uidHouse").getValue().toString();
+                    REF_PRIVATE_CURRENT_YEAR.child(UidHouse).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            //Log.d("houseContacts",snapshot.child("houseContacts").getValue().toString());
+                            if(snapshot.child("houseContacts").getValue()!=null) UidContact = snapshot.child("houseContacts").getValue().toString();
+                            REF_CONTACTS.child(UidContact).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    Log.d("contactName",snapshot.child("contactName").getValue()+ " "+snapshot.child("contactFamily").getValue()+ UidHouse);
+                                    contactName = snapshot.child("contactName").getValue()+ " "+snapshot.child("contactFamily").getValue();
+                                    ordersTitle.add(contactName+" - "+ds.child("orderDate").getValue().toString());
+                                    ordersTitle.toString();
+                                    adp.notifyDataSetChanged();
+                                    ordersLv.setAdapter(adp);
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                     Log.d("orderrow",ds.child("uidHouse").getValue().toString()+" "+ds.child("orderDate").getValue().toString());
-                    ordersTitle.add(ds.child("uidHouse").getValue().toString()+"  "+ds.child("orderDate").getValue().toString());
+
+
+
                 }
-                ordersTitle.toString();
-                adp.notifyDataSetChanged();
-                ordersLv.setAdapter(adp);
+
+
             }
 
 
@@ -75,8 +106,20 @@ public class Ordermenu extends AppCompatActivity implements AdapterView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String orderTitle = ordersTitle.get(position);
-        String UidHouse = orderTitle.substring(0,orderTitle.indexOf(' '));
+        String contactName = orderTitle.substring(0,orderTitle.indexOf('-'));
         String UidOrder = orders.get(position);
+
+        REF_ORDERS.child(UidOrder).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UidHouse = snapshot.child("uidHouse").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         REF_PRIVATE_CURRENT_YEAR.child(UidHouse).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -88,7 +131,10 @@ public class Ordermenu extends AppCompatActivity implements AdapterView.OnItemCl
                 t1.putExtra("UidHouse", UidHouse);
                 t1.putExtra("UidOrder", UidOrder);
                 t1.putExtra("UidContact",UidContact);
+                t1.putExtra("contactName",contactName);
+
                 startActivity(t1);
+
             }
 
             @Override
@@ -98,8 +144,6 @@ public class Ordermenu extends AppCompatActivity implements AdapterView.OnItemCl
 
 
         });
-
-
 
     }
 

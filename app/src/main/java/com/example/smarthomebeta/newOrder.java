@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -123,6 +125,8 @@ public class newOrder extends AppCompatActivity {
         REF_ORDERS.child(orderUid).setValue(orderdata);
 
         Constants.REF_PRIVATE_CURRENT_YEAR.child(UidHouse).child("Orders").child(curDate).setValue(orderUid);
+        Toast.makeText(this, "הזמנה חדשה נוצרה", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,loginok.class));
     }
 }
 
